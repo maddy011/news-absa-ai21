@@ -10,13 +10,13 @@ load_dotenv()
 API_KEY = os.getenv("AI21_LABS_API_KEY")
 
 # Set up ai21 API key
-ai21.api_key = 'NKz8j9xx3PpYS32lr40sPSm4oQJacbx0' # API_KEY
+ai21.api_key = API_KEY
 
 # Set up News API endpoint
-NEWS_API_KEY = "b95dbe8383ec43739e32c71fbc516bb6"
+NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 url = f"https://newsapi.org/v2/everything?apiKey={NEWS_API_KEY}"
 
-st.title("AI Sports News")
+st.title("AI News Aspect Based Sentiment Analysis")
 
 # Get user topic input
 topic = st.text_input("Enter some index or ")
