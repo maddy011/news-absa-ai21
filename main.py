@@ -21,9 +21,12 @@ st.title("AI News Aspect Based Sentiment Analysis")
 # Get user topic input
 topic = st.text_input("Enter the NEWS title for aspect-based sentiment analysis")
 
+# get today's date in ISO format
+today = datetime.today().strftime('%Y-%m-%d')
+
 if st.button("Search"):
     # Set query parameters and fetch news articles from the API
-    params = {"q": topic, "sortBy": "relevancy", "language": "en"}
+    params = {"q": topic, "sortBy": "relevancy", "language": "en", "from": today, "to": today}
     response = requests.get(url, params=params)
     articles = response.json()["articles"]
 
