@@ -35,7 +35,7 @@ if st.button("Search"):
         response = ai21.Completion.execute(
             model="j2-large",
             custom_model="ASBA-j2-large-v2",
-            prompt="Find the aspect based sentiment analysis",
+            prompt=prompt,
             numResults=1,
             maxTokens=200,
             temperature=0.7,
