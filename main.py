@@ -41,7 +41,7 @@ if st.button("Search"):
             temperature=0.7,
             topKReturn=0
         )
-        sport = response.choices[0].text.strip()
+        sport = response.completions[0].data.text
 
         # Display the predicted sport for each article
         st.write(f"Article title: {title}")
