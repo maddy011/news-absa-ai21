@@ -30,7 +30,7 @@ if st.button("Search"):
     # Process the articles and get predicted sports from AI model
     for article in articles:
         title = article["title"]
-        contents = article["description"]
+        contents = article["content"]
         prompt = None
         for content in contents:
           response = ai21.Completion.execute(
