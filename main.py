@@ -30,13 +30,12 @@ if st.button("Search"):
     # Process the articles and get predicted sports from AI model
     for article in articles:
         title = article["title"]
-        contents = article["content"]
-        prompt = None
-        for content in contents:
-          response = ai21.Completion.execute(
+        content = article["content"]
+        prompt = article["content"]
+        response = ai21.Completion.execute(
             model="j2-large",
             custom_model="ASBA-j2-large-v2",
-            prompt="",
+            prompt="Find the aspect based sentiment analysis",
             numResults=1,
             maxTokens=200,
             temperature=0.7,
@@ -68,7 +67,7 @@ if st.button("Search"):
                 },
             stopSequences=[]
         )
-        ABSA = response.completions[0].data.text
+        ABSA = response.completions[0].data.text          
 
         # Display the predicted sport for each article
         st.write(f"Article title: {title}")
