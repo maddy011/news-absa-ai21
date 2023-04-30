@@ -68,11 +68,11 @@ if st.button("Search"):
                 },
             stopSequences=[]
         )
-        sport = response.completions[0].data.text
+#         sport = response.completions[0].data.text
 
         # Display the predicted sport for each article
         st.write(f"Article title: {title}")
-        st.write(f"Aspect Sentiment: {sport}")
+        st.write(f"Aspect Sentiment: {response}")
         st.write(f"Article content: {content}")
         st.write("---")
 
