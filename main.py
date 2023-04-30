@@ -32,7 +32,7 @@ if st.button("Search"):
         title = article["title"]
         content = article["description"]
         prompt = None
-        ai21.Completion.execute(
+        response = ai21.Completion.execute(
             model="j2-large",
             custom_model="ASBA-j2-large-v2",
             prompt="",
@@ -66,7 +66,7 @@ if st.button("Search"):
                 "applyToEmojis": False
                 },
             stopSequences=[]
-)
+        )
         sport = response.completions[0].data.text
 
         # Display the predicted sport for each article
