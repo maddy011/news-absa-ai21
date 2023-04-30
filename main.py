@@ -29,10 +29,10 @@ if st.button("Search"):
 
     # Process the articles and get predicted sports from AI model
     for article in articles:
-        titles = article["title"]
-        content = article["description"]
+        title = article["title"]
+        contents = article["description"]
         prompt = None
-        for title in titles:
+        for content in contents:
           response = ai21.Completion.execute(
             model="j2-large",
             custom_model="ASBA-j2-large-v2",
@@ -68,11 +68,11 @@ if st.button("Search"):
                 },
             stopSequences=[]
         )
-#         sport = response.completions[0].data.text
+        ABSA = response.completions[0].data.text
 
         # Display the predicted sport for each article
         st.write(f"Article title: {title}")
-        st.write(f"Aspect Sentiment: {response}")
+        st.write(f"Aspect Sentiment: {ABSA}")
         st.write(f"Article content: {content}")
         st.write("---")
 
