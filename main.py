@@ -31,7 +31,7 @@ if st.button("Search"):
     for article in articles:
         title = article["title"]
         content = article["content"]
-        prompt = article["content"]
+        prompt = article["title"]
         response = ai21.Completion.execute(
             model="j2-large",
             custom_model="ASBA-j2-large-v2",
