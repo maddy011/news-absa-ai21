@@ -19,33 +19,62 @@ url = f"https://newsapi.org/v2/everything?apiKey={NEWS_API_KEY}"
 st.title("AI Sports News")
 
 # Get user topic input
-topic = st.text_input("Enter a topic you want to read about in sports:")
+topic = st.text_input("Enter some index or ")
 
 if st.button("Search"):
     # Set query parameters and fetch news articles from the API
     params = {"q": topic, "sortBy": "relevancy", "language": "en"}
     response = requests.get(url, params=params)
     articles = response.json()["articles"]
-    titles = articles["title"]
 
     # Process the articles and get predicted sports from AI model
-    for title in titles:
-        # title = article["title"]
-        # content = article["description"]
+    for article in articles:
+        titles = article["title"]
+        content = article["description"]
         prompt = None
-        response = ai21.Completion.execute(
+        for title in titles:
+          response = ai21.Completion.execute(
             model="j2-large",
             custom_model="ASBA-j2-large-v2",
             prompt="",
             numResults=1,
             maxTokens=200,
             temperature=0.7,
-            topKReturn=0
+            topKReturn=0,
+            topP=1,
+            countPenalty={
+                "scale": 0,
+                "applyToNumbers": False,
+                "applyToPunctuations": False,
+                "applyToStopwords": False,
+                "applyToWhitespaces": False,
+                "applyToEmojis": False
+                },
+            frequencyPenalty={
+                "scale": 0,
+                "applyToNumbers": False,
+                "applyToPunctuations": False,
+                "applyToStopwords": False,
+                "applyToWhitespaces": False,
+                "applyToEmojis": False
+                },
+            presencePenalty={
+                "scale": 0,
+                "applyToNumbers": False,
+                "applyToPunctuations": False,
+                "applyToStopwords": False,
+                "applyToWhitespaces": False,
+                "applyToEmojis": False
+                },
+            stopSequences=[]
         )
         sport = response.completions[0].data.text
 
         # Display the predicted sport for each article
         st.write(f"Article title: {title}")
-        st.write(f"Predicted sport: {sport}")
+        st.write(f"Aspect Sentiment: {sport}")
         st.write(f"Article content: {content}")
         st.write("---")
+
+
+        
