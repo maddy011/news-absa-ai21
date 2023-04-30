@@ -3,6 +3,7 @@ import requests
 import streamlit as st
 import ai21
 from dotenv import load_dotenv
+import datetime
 
 # Load secrets
 load_dotenv()
