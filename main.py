@@ -19,16 +19,16 @@ st.title("AI News Aspect Based Sentiment Analysis")
 
 # Get user topic input
 topic = st.text_input("Enter the NEWS title for aspect-based sentiment analysis")
-start = st.text_input("Please specify the date from which you would like to collect the news articles. (yyyy, m, d)")
-end = st.text_input("Please specify the date till which you would like to collect the news articles. (yyyy, m, d)")
+start = st.text_input("Please specify the date from which you would like to collect the news articles. (yyyy-mm-dd)")
+end = st.text_input("Please specify the date till which you would like to collect the news articles. (yyyy-mm-dd)")
 
 # get today's date in ISO format
-today = datetime.date.today() # datetime.today().strftime('%Y-%m-%d')
-yesterday = today - datetime.timedelta(days=1)
+# today = datetime.date.today() # datetime.today().strftime('%Y-%m-%d')
+# yesterday = today - datetime.timedelta(days=1)
 
 if st.button("Search"):
     # Set query parameters and fetch news articles from the API
-    params = {"q": topic, "sortBy": "relevancy", "language": "en"} # , "from": start, "to": end
+    params = {"q": topic, "sortBy": "relevancy", "language": "en", "from": start, "to": end} # 
     response = requests.get(url, params=params)
     articles = response.json()["articles"]
 
