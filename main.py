@@ -9,7 +9,8 @@ import datetime
 load_dotenv()
 
 # Set up ai21 API key 
-ai21.api_key = '5UmK80DxqWV1sXhsLO66zBrNSrMaOvFA'
+# ai21.api_key = os.getenv("AI21_API_KEY")
+ai21.api_key = 'your_ai21_api_key_here'
 
 # Set up News API endpoint
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
@@ -21,10 +22,6 @@ st.title("NewsTrackr: AI News Aspect Based Sentiment Analysis")
 topic = st.text_input("Enter the NEWS title for aspect-based sentiment analysis")
 start = st.text_input("Please specify the date from which you would like to collect the news articles. (YYYY-MM-DD)")
 end = st.text_input("Please specify the date till which you would like to collect the news articles. (YYYY-MM-DD)")
-
-# get today's date in ISO format
-# today = datetime.date.today() # datetime.today().strftime('%Y-%m-%d')
-# yesterday = today - datetime.timedelta(days=1)
 
 if st.button("Search"):
     # Set query parameters and fetch news articles from the API
