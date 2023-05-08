@@ -9,7 +9,7 @@ import datetime
 load_dotenv()
 
 # Set up ai21 API key 
-ai21.api_key = '6261742702:AAGkil1tWLckpBbC088rTO3Lb-lH2hJVmBg'
+ai21.api_key = '5UmK80DxqWV1sXhsLO66zBrNSrMaOvFA'
 
 # Set up News API endpoint
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
