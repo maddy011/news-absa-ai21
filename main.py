@@ -10,7 +10,7 @@ load_dotenv()
 
 # Set up ai21 API key 
 # ai21.api_key = os.getenv("AI21_API_KEY")
-ai21.api_key = '5UmK80DxqWV1sXhsLO66zBrNSrMaOvFA' # 'your_ai21_api_key_here'
+ai21.api_key = 'your_ai21_api_key_here'
 
 # Set up News API endpoint
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
