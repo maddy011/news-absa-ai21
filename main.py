@@ -15,12 +15,12 @@ ai21.api_key = '5UmK80DxqWV1sXhsLO66zBrNSrMaOvFA'
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 url = f"https://newsapi.org/v2/everything?apiKey={NEWS_API_KEY}"
 
-st.title("AI News Aspect Based Sentiment Analysis")
+st.title("NewsTrackr: AI News Aspect Based Sentiment Analysis")
 
 # Get user topic input
 topic = st.text_input("Enter the NEWS title for aspect-based sentiment analysis")
-start = st.text_input("Please specify the date from which you would like to collect the news articles. (yyyy-mm-dd)")
-end = st.text_input("Please specify the date till which you would like to collect the news articles. (yyyy-mm-dd)")
+start = st.text_input("Please specify the date from which you would like to collect the news articles. (YYYY-MM-DD)")
+end = st.text_input("Please specify the date till which you would like to collect the news articles. (YYYY-MM-DD)")
 
 # get today's date in ISO format
 # today = datetime.date.today() # datetime.today().strftime('%Y-%m-%d')
