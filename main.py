@@ -10,7 +10,7 @@ load_dotenv()
 
 # Set up ai21 API key 
 # ai21.api_key = os.getenv("AI21_API_KEY")
-ai21.api_key = 'your_ai21_api_key_here'
+ai21.api_key = '5UmK80DxqWV1sXhsLO66zBrNSrMaOvFA' # 'your_ai21_api_key_here'
 
 # Set up News API endpoint
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
@@ -33,6 +33,8 @@ if st.button("Search"):
     for article in articles:
         title = article["title"]
         content = article["content"]
+        url = article['url']
+        
         prompt = article["title"]
         response = ai21.Completion.execute(
             model="j2-large",
@@ -75,6 +77,7 @@ if st.button("Search"):
         st.write(f"Article title: {title}")
         st.write(f"Aspect Sentiment: {ABSA}")
         st.write(f"Article content: {content}")
+        st.write(f"Article URL: {url}")
         st.write("---")
 
 
